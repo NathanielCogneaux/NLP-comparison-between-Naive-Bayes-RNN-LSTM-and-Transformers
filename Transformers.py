@@ -37,6 +37,9 @@ def preprocessing(sentence):
 # Preprocess the sentences
 df["sentence"] = df["sentence"].apply(preprocessing)
 
+# Print some preprocessed samples
+print(df["sentence"].head())
+
 # Define tokenizer
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
 
@@ -60,6 +63,11 @@ train_indices, val_indices = train_test_split(
 
 train_dataset = train_val_dataset.select(train_indices)
 val_dataset = train_val_dataset.select(val_indices)
+
+# Print data splits
+print(f"Number of training samples: {len(train_dataset)}")
+print(f"Number of validation samples: {len(val_dataset)}")
+print(f"Number of test samples: {len(test_dataset)}")
 
 # Define the model
 model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=3)
@@ -95,8 +103,18 @@ trainer = Trainer(
 # Train the model
 trainer.train()
 
+# Evaluate the model on the training and validation sets
+training_accuracy = trainer.evaluate(train_dataset)
+validation_accuracy = trainer.evaluate(val_dataset)
+
+print(f"Training accuracy: {training_accuracy['eval_accuracy']}")
+print(f"Validation accuracy: {validation_accuracy['eval_accuracy']}")
+
 # Evaluate the model on the test set
 evaluation_results = trainer.evaluate(test_dataset)
 
+# Print the evaluation results to check what keys are present
+print(evaluation_results)
+
 # Print the accuracy
-print(f"Accuracy on the test set: {evaluation_results['accuracy']}")
+print(f"Accuracy on the test set: {evaluation_results['eval_accuracy']}")
