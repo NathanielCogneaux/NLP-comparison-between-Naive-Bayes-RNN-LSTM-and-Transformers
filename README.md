@@ -9,7 +9,6 @@ This repository presents a comparative study of four Natural Language Processing
 The analysis is applied to the **Kaggle dataset**: [NLP - Financial News Sentiment Analysis](https://www.kaggle.com/datasets/abhi8923shriv/sentiment-analysis-dataset).  
 It was conducted as part of a **Master’s degree project** in deep learning.
 
----
 
 ## 📁 Structure
 
@@ -27,7 +26,6 @@ It was conducted as part of a **Master’s degree project** in deep learning.
   - Implementation details
   - Experimental results and visualizations
 
----
 
 ## 🧾 Summary of Findings
 
@@ -40,25 +38,15 @@ It was conducted as part of a **Master’s degree project** in deep learning.
 
 As expected, more complex models generally achieve better performance at the cost of increased computation.
 
----
 
-## Getting Started
-
-1. **Clone this repo**  
-   ```bash
-   git clone https://github.com/yourusername/NLP-comparison-between-Naive-Bayes-RNN-LSTM-and-Transformers.git
-   cd NLP-comparison-between-Naive-Bayes-RNN-LSTM-and-Transformers
-````
-
-2. **Install dependencies**
+**Install dependencies**
 
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Run the notebooks** in the `models/` folder.
+**Run the notebooks** in the `models/` folder.
 
----
 
 ## 📖 References
 
